@@ -25,7 +25,7 @@
   "saturday": "Lördag",
   "sunday": "Söndag",
   "areweopen-help-day-configuration": "Inställningar för varje veckodag, tidblock separeras med mellanslag",
-  "areweopen-help-day-configuration-sample": "0830-1130 1230-1700 ellerr 0830- eller 0830-1600",
+  "areweopen-help-day-configuration-sample": "0830-1130 1230-1700 eller 0830- eller 0830-1600",
   "areweopen-closed-on-days": "Stängt dessa dagar",
   "areweopen-closed-on-days-label": "Stängt på",
   "areweopen-help-closed-on-days": "Du har stängt dessa dagar, oavsett schemat",

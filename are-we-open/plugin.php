@@ -328,9 +328,9 @@ class AreWeOpen extends Plugin {
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-3">';
         $html .= '<label class="form-label h6 mb-1" for="' . AREWEOPEN_PLUGIN_STATUS . '">';
-        $html .= $L->get( AREWEOPEN_PLUGIN_STATUS );
+        $html .= htmlentities( $L->get( AREWEOPEN_PLUGIN_STATUS ) );
         if ( $current_setting == AREWEOPEN_PLUGIN_DISABLED ) {
-            $html .= ' (<span class="text-danger">' . $L->get( AREWEOPEN_PLUGIN_DISABLED ) . '</span>)';
+            $html .= ' (<span class="text-danger">' . htmlentities( $L->get( AREWEOPEN_PLUGIN_DISABLED ) ) . '</span>)';
         }
         $html .= '</label>';
         $html .= '<select class="form-select" id="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . '" name="' . AREWEOPEN_PLUGIN_STATUS . '" aria-describedby="' . AREWEOPEN_PLUGIN_STATUS . 'Help">';
@@ -342,16 +342,16 @@ class AreWeOpen extends Plugin {
             if ( $current_setting == $k ) {
                 $html .= ' selected';
             }
-            $html .= '>' . $L->get( $k ) . '</option>';
+            $html .= '>' . htmlentities( $L->get( $k ) ) . '</option>';
         }
         $html .= '</select>';
-        $html .= '<div id="' . AREWEOPEN_PLUGIN_STATUS . 'Help" class="form-text text-muted">' . $L->get( 'help-' . AREWEOPEN_PLUGIN_STATUS ) . '</div>';
+        $html .= '<div id="' . AREWEOPEN_PLUGIN_STATUS . 'Help" class="form-text text-muted">' . htmlentities( $L->get( 'help-' . AREWEOPEN_PLUGIN_STATUS ) ) . '</div>';
         $html .= '</div>';
         $html .= '</div>';
         // Plugin general status
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-3">';
-        $html .= '<label class="form-label h6 mb-1" for="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . '">' . $L->get( AREWEOPEN_PLUGIN_GENERAL_STATUS ) . '</label>';
+        $html .= '<label class="form-label h6 mb-1" for="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . '">' . htmlentities( $L->get( AREWEOPEN_PLUGIN_GENERAL_STATUS ) ) . '</label>';
         $html .= '<select class="form-select" id="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . '" name="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . '" aria-describedby="' . AREWEOPEN_PLUGIN_STATUS . 'Help">';
         $current_setting = $this->getPluginGeneralStatus();
         if ( ! in_array( $current_setting, $this->plugin_general_status_values ) ) {
@@ -362,10 +362,10 @@ class AreWeOpen extends Plugin {
             if ( $current_setting == $k ) {
                 $html .= ' selected';
             }
-            $html .= '>' . $L->get( $k ) . '</option>';
+            $html .= '>' . htmlentities( $L->get( $k ) ) . '</option>';
         }
         $html .= '</select>';
-        $html .= '<div id="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . 'Help" class="form-text text-muted">' . $L->get( 'help-' . AREWEOPEN_PLUGIN_GENERAL_STATUS ) . '</div>';
+        $html .= '<div id="' . AREWEOPEN_PLUGIN_GENERAL_STATUS . 'Help" class="form-text text-muted">' . htmlentities( $L->get( 'help-' . AREWEOPEN_PLUGIN_GENERAL_STATUS ) ) . '</div>';
         $html .= '</div>';
         $html .= '</div>';
         // Are We Open?
@@ -385,14 +385,14 @@ class AreWeOpen extends Plugin {
             // Initialize AvailableTime object
             $available_times = new AvailableTime( $availability['schedule'], $availability['datesclosed'], $availability['daysclosed'] );
             $now_day_of_week = strtolower( $now_date_time->format( 'l' ) );
-            $html .= '<i>' . $L->get( 'weareopen-status' ) . ' ' . $L->get( 'weareopen-for-date' ) . ' ' .
+            $html .= '<i>' . htmlentities( $L->get( 'weareopen-status' ) ) . ' ' . htmlentities( $L->get( 'weareopen-for-date' ) ) . ' ' .
                      $now_date_time->format( 'Y-m-d, H:i' ) .
                      ' (' .
-                     $L->get( $now_date_time->format( 'l' ) ) . ')' . '</i><br/><strong>';
+                     htmlentities( $L->get( $now_date_time->format( 'l' ) ) ) . ')' . '</i><br/><strong>';
             if ( $available_times->isAvailableTime( 'now' ) ) {
-                $html .= '<span class="text-success">' . $L->get( 'weareopen-open' ) . '</span>';
+                $html .= '<span class="text-success">' . htmlentities( $L->get( 'weareopen-open' ) ) . '</span>';
             } else {
-                $html .= '<span class="text-danger">' . $L->get( 'weareopen-closed' ) . '</span>';
+                $html .= '<span class="text-danger">' . htmlentities( $L->get( 'weareopen-closed' ) ) . '</span>';
             }
             $html .= '</strong>';
             $html .= '</div>';
@@ -400,14 +400,14 @@ class AreWeOpen extends Plugin {
         } else {
             $html .= '<div class="row">';
             $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-1 border-left border-warning p-2" role="alert" style="margin-left: 15px !important; max-width: 75% !important; border-width: 5px !important;">';
-            $html .= $L->get( 'error-unable-to-fetch-current-time' );
+            $html .= htmlentities( $L->get( 'error-unable-to-fetch-current-time' ) );
             $html .= '</div>';
             $html .= '</div>';
         }
         // Day configuration
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-3">';
-        $html .= '<label class="form-label h6 mb-0" for="' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . '">' . $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION ) . '</label>';
+        $html .= '<label class="form-label h6 mb-0" for="' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . '">' . htmlentities( $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION ) ) . '</label>';
         $html .= '<div id="' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . '" class="row">';
         $html .= '<div class="col-12">';
         $html .= '<div class="row mt-0">';
@@ -437,14 +437,14 @@ class AreWeOpen extends Plugin {
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div id="' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . 'Help" class="mt-2 form-text text-muted">';
-        $html .= $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION ) . '<br/>';
-        $html .= '<span style="font-family: monospace;" class="small">' . $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . '-sample' ) . '</span></div>';
+        $html .= htmlentities( $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION ) ) . '<br/>';
+        $html .= '<span style="font-family: monospace;" class="small">' . htmlentities( $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_DAY_CONFIGURATION . '-sample' ) ) . '</span></div>';
         $html .= '</div>';
         $html .= '</div>';
         // Closed on specific days
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-3">';
-        $html .= '<label class="form-label h6 m-0" for="' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS . '">' . $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS ) . '</label>';
+        $html .= '<label class="form-label h6 m-0" for="' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS . '">' . htmlentities( $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS ) ) . '</label>';
         $html .= '<div id="' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS . '" class="row">';
         $html .= '<div class="col-12">';
         $html .= '<div class="row">';
@@ -467,7 +467,7 @@ class AreWeOpen extends Plugin {
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div id="' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS . 'Help" class="form-text text-muted">';
-        $html .= $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS );
+        $html .= htmlentities( $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DAYS ) ) ;
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
@@ -475,18 +475,18 @@ class AreWeOpen extends Plugin {
         // Closed on specific dates
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 mb-3">';
-        $html .= '<label class="form-label h6 mb-1" for="' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . '">' . $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES ) . '</label>';
+        $html .= '<label class="form-label h6 mb-1" for="' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . '">' . htmlentities( $L->get( 'areweopen-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES ) ) . '</label>';
         $html .= '<input name="' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . '" type="text" class="form-control" aria-describedby="' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . 'Help" value="' . $this->getClosedOnDates() . '" />';
         $html .= '<div id="' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . 'Help" class="form-text text-muted">';
-        $html .= $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES ) . '<br/>';
-        $html .= '<span style="font-family: monospace;" class="small">' . $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . '-sample' ) . '</span></div>';
+        $html .= htmlentities( $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES ) ) . '<br/>';
+        $html .= '<span style="font-family: monospace;" class="small">' . htmlentities( $L->get( 'areweopen-help-' . AREWEOPEN_PLUGIN_CLOSED_ON_DATES . '-sample' ) ) . '</span></div>';
         $html .= '</div>';
         $html .= '</div>';
 
         $html .= '<div class="row">';
         $html .= '<div class="col-12 col-lg-10 col-xl-8 p-3 mt-3 alert alert-info" role="alert" style="max-width: 65% !important; margin-left: 25px !important;">';
-        $html .= '<p class="h3">' . $L->get( 'areweopen-usage-header' ) . '</p>';
-        $html .= '<p>' . $L->get( 'areweopen-usage-help' ) . '</p>';
+        $html .= '<p class="h3">' . htmlentities( $L->get( 'areweopen-usage-header' ) ) . '</p>';
+        $html .= '<p>' . htmlentities( $L->get( 'areweopen-usage-help' ) ) . '</p>';
         $html .= '</div>';
         $html .= '</div>';
 

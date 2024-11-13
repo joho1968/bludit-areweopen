@@ -39,12 +39,18 @@ The plugin will respect `<pre>..</pre>` and not parse for the shortcodes in that
 * [BS5Docs](https://bludit-bs5docs.joho.se), a fully featured Bootstrap 5 documentation theme for Bludit
 * [BS5SimplyBlog](https://bludit-bs5simplyblog.joho.se), a fully featured Bootstrap 5 blog theme for Bludit
 * [BS5Plain](https://bludit-bs5plain.joho.se), a simplistic and clean Bootstrap 5 blog theme for Bludit
-* [Chuck Norris Quotes](https://github.com/joho1968/bludit-are-we-open), provides random Chuck Norris quotes for your Bludit page content
+* [Chuck Norris Quotes](https://github.com/joho1968/bludit-chucknorrisquotes), provides random Chuck Norris quotes for your Bludit page content
+* [What's Up](https://github.com/joho1968/bludit-whats-up), a calendar agenda display plugin
 
 ## Changelog
 
 ### 1.0.0 (2024-10-25)
 * Initial release
+
+### 1.0.1 (2024-11-13)
+* Corrections to Swedish translation
+* Corrections to `README.md`
+* Better escaping of strings in plugin configuration
 
 ## Other notes
 
